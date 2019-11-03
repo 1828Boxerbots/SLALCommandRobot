@@ -11,6 +11,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 std::shared_ptr <DriveTrain> Robot::m_driveTrain = std::make_shared<DriveTrain>();
+std::shared_ptr <LeadScrew> Robot::m_leadScrew = std:: make_shared<LeadScrew>();
 
 OI Robot::m_oi;
 
@@ -68,6 +69,7 @@ void Robot::TeleopInit() {
   // this line or comment it out.
 
   m_driveTrainCMD.Start();
+  m_leadScrewCMD.Start();
 }
 
 void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
