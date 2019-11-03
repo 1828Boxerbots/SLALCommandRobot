@@ -7,8 +7,12 @@
 
 #include "OI.h"
 
-#include <frc/WPILib.h>
+//#include <frc/WPILib.h>
 
+XboxController* OI::GetController()
+{
+  return &m_joyStick;
+}
 OI::OI() {
   // Process operator interface input here.
 }

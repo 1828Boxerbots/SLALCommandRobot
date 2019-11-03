@@ -8,13 +8,25 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <frc/Talon.h>
+#include <frc/XboxController.h>
+#include "RobotMap.h"
+
+using namespace frc;
 
 class DriveTrain : public frc::Subsystem {
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
+  // Talon Motors w/ Port Numbers
+  Talon m_driveLeft {DRIVE_LEFT};
+  Talon m_driveRight {DRIVE_RIGHT};
+
  public:
+ // Definition of commands
   DriveTrain();
+  void TeleopDrive(XboxController* m_joyStick);
+  void StopDriveMotors();
   void InitDefaultCommand() override;
 };

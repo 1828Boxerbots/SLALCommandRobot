@@ -9,9 +9,9 @@
 
 #include <frc/commands/Command.h>
 
-class ExampleCommand : public frc::Command {
+class DriveTrainCMD : public frc::Command {
  public:
-  ExampleCommand();
+  DriveTrainCMD();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

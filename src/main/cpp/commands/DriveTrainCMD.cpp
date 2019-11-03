@@ -5,27 +5,39 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/MyAutoCommand.h"
-
+#include "commands/DriveTrainCMD.h"
 #include "Robot.h"
 
-MyAutoCommand::MyAutoCommand() {
+DriveTrainCMD::DriveTrainCMD() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subsystem);
+  // eg. Requires(Robot::chassis.get());
+  Requires(Robot::m_driveTrain.get());
 }
 
 // Called just before this Command runs the first time
-void MyAutoCommand::Initialize() {}
+void DriveTrainCMD::Initialize() 
+{
+  Robot::m_driveTrain->StopDriveMotors();
+}
 
 // Called repeatedly when this Command is scheduled to run
-void MyAutoCommand::Execute() {}
+void DriveTrainCMD::Execute() 
+{
+  Robot::m_driveTrain->TeleopDrive(Robot::m_oi.GetController());
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool MyAutoCommand::IsFinished() { return false; }
+bool DriveTrainCMD::IsFinished() 
+{ 
+  return false; 
+}
 
 // Called once after isFinished returns true
-void MyAutoCommand::End() {}
+void DriveTrainCMD::End() 
+{
+  Robot::m_driveTrain->StopDriveMotors();
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void MyAutoCommand::Interrupted() {}
+void DriveTrainCMD::Interrupted() {}

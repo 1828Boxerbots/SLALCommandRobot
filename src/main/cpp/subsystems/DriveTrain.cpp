@@ -5,9 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "DriveTrain.h"
+#include "subsystems/DriveTrain.h"
 
 DriveTrain::DriveTrain() : Subsystem("ExampleSubsystem") {}
+
+void DriveTrain::TeleopDrive(XboxController* m_joyStick)
+{
+  double leftY = m_joyStick->GetY(GenericHID::kLeftHand);
+  double rightY = m_joyStick->GetY(GenericHID::kRightHand);
+  m_driveLeft.Set(-leftY);
+  m_driveRight.Set(rightY);
+}
+
+void DriveTrain::StopDriveMotors()
+{
+  m_driveLeft.Set(0.0);
+  m_driveRight.Set(0.0);
+}
 
 void DriveTrain::InitDefaultCommand() {
   // Set the default command for a subsystem here.
