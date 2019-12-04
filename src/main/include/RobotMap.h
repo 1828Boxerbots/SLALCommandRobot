@@ -25,6 +25,7 @@
 // constexpr int kRangeFinderModule = 1;
 
 
+// PWM
 constexpr int DRIVE_LEFT = 0;
 constexpr int DRIVE_RIGHT = 1;
 
@@ -33,9 +34,15 @@ constexpr int SCREW_RIGHT = 3;
 
 constexpr int ARM_MOTOR = 4;
 
+// DIO
 constexpr int BOTTOM_LIMIT = 6;
 constexpr int TOP_LIMIT = 7;
+constexpr int LIDAR = 1;
 
+// ANALOG
 constexpr int POT = 3;
 
+// USB
 constexpr int XBOX_CONTROLLER = 0;
+
+

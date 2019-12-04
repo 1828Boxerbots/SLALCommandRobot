@@ -18,12 +18,14 @@ DriveTrainCMD::DriveTrainCMD() {
 void DriveTrainCMD::Initialize() 
 {
   Robot::m_driveTrain->StopDriveMotors();
+  Robot::m_driveTrain->LidarLite();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveTrainCMD::Execute() 
 {
   Robot::m_driveTrain->TeleopDrive(Robot::m_oi.GetController());
+  Robot::m_driveTrain->GetDistance();
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -9,6 +9,8 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/Talon.h>
+#include <frc/Counter.h>
+#include <frc/DigitalInput.h>
 #include <frc/XboxController.h>
 #include "RobotMap.h"
 
@@ -22,10 +24,14 @@ class DriveTrain : public frc::Subsystem {
   // Talon Motors w/ Port Numbers
   Talon m_driveLeft {DRIVE_LEFT};
   Talon m_driveRight {DRIVE_RIGHT};
+  DigitalInput m_lidar {LIDAR};
+  Counter* m_pCounter;
 
  public:
  // Definition of commands
   DriveTrain();
+  void LidarLite();
+  void GetDistance();
   void TeleopDrive(XboxController* m_joyStick);
   void StopDriveMotors();
   void InitDefaultCommand() override;
