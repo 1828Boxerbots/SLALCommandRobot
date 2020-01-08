@@ -6,8 +6,14 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+#include <frc/XboxController.h>
+#include "RobotMap.h"
+using namespace frc;
 
 class OI {
- public:
+  private:
+   XboxController m_joyStick {XBOX_CONTROLLER};
+  public:
+   XboxController* GetController();
   OI();
 };
